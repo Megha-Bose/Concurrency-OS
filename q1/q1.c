@@ -1,15 +1,21 @@
-#include<pthread.h>
-#include <sys/types.h> 
-#include <sys/ipc.h> 
-#include <sys/shm.h> 
-#include <stdio.h> 
-#include <stdlib.h> 
-#include <sys/wait.h>
+#define _POSIX_C_SOURCE 199309L //required for clock
+#include <sys/types.h>
+#include <sys/ipc.h>
+#include <sys/shm.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
+#include <wait.h>
+#include <limits.h>
+#include <fcntl.h>
+#include <time.h>
+#include <pthread.h>
+#include <inttypes.h>
+#include <math.h>
 
 long long n;
 pthread_mutex_t mutex;
-// struct for arguments for using threads
+// struct of arguments for using threads
 typedef struct args
 {
     int l, r;
